@@ -1,0 +1,4 @@
+includes: ['layer:openstack', 'interface:neutron-plugin', 'interface:service-control']
+options:
+  basic:
+    packages: ['python3-libvirt', 'python3-pylxd']

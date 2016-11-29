@@ -1,0 +1,49 @@
+name: virtual-accelerator
+summary: Virtual Accelerator provides packet processing acceleration.
+maintainer: Pascal Mazon <pascal.mazon@6wind.com>
+description: |
+  Virtual Accelerator provides low latency and high networking throughput
+  while offloading the virtual switching from the Openstack hypervisor
+  networking stack (Neutron).
+  The CPU resources necessary for packet processing are drastically reduced, so that
+  less cores are required to process network traffic at higher rates.
+  It allows a better determinism for your performances.
+
+  Virtual Accelerator is fully integrated with Linux and its environment, so
+  that your existing Linux networking scenario does not need to be modified to
+  benefit from packet processing acceleration. For instance, you can still
+  use Linux bridges, OVS, iptables or IPsec and you still benefit from networking
+  acceleration for your VMs.
+
+tags:
+  - network
+  - openstack
+  - performance
+series:
+  - xenial
+subordinate: true
+requires:
+  container:
+    interface: juju-info
+    scope: container
+  neutron-control:
+    interface: service-control
+provides:
+  net-acceleration:
+    interface: va
+  neutron-plugin:
+    interface: neutron-plugin
+    scope: container
+resources:
+  credentials:
+    type: file
+    filename: 6wind-authentication-credentials.deb
+    description: "Credentials package provided by 6WIND"
+  license:
+    type: file
+    filename: va.lic
+    description: "License file provided by 6WIND"
+  custom_fp_conf:
+    type: file
+    filename: custom_fast_path.env
+    description: "Use this fast path configuration file instead of using charm's options."
