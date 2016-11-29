@@ -1,0 +1,17 @@
+options:
+  va-version:
+    type: string
+    default: "stable"
+    description: >
+      Version of Virtual Accelerator to install.
+      Either specify a version number in X.Y format, or specify "stable".
+
+      Supported versions:
+
+        - "stable": matches the latest stable release.
+        - "1.4": matches 2016 Q3 release.
+        - "1.3": matches 2016 Q1 release.
+  VM_MEMORY:
+    type: string
+    default: "4096"
+    description: "VM_MEMORY defines how much memory (in MB) from the hugepages to allocate for virtual machines."

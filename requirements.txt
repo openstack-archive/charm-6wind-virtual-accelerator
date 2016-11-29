@@ -1,0 +1,5 @@
+# Requirements to build the charm
+charm-tools
+simplejson
+flake8
+
